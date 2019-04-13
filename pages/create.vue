@@ -1,9 +1,9 @@
 <template lang="pug">
-  h1.title Events
+  h1.title Create Events
 </template>
 
 <script>
 export default {}
 </script>
 
-<style lang="scss"></style>
+<style></style>
