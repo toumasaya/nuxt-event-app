@@ -5,7 +5,7 @@
         nuxt-link.navbar-item.has-text-primary(to="/") Nuxt Events
       .navbar-menu
         nuxt-link.navbar-item(to="/") Events
-        nuxt-link.navbar-item(to="/create") Create
+        nuxt-link.navbar-item(to="/event/create") Create
       .navbar-end
         .navbar-item
           .buttons
