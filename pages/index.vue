@@ -3,7 +3,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: 'Event Lists'
+    }
+  }
+}
 </script>
 
 <style lang="scss"></style>

@@ -3,7 +3,20 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head() {
+    return {
+      title: 'Create an Event',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Create your event right now!'
+        }
+      ]
+    }
+  }
+}
 </script>
 
 <style></style>
