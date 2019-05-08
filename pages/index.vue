@@ -11,7 +11,7 @@
 
 <script>
 import EventCard from '~/components/EventCard.vue'
-import EventService from '@/services/EventService.js'
+import { mapState } from 'vuex'
 
 export default {
   components: {
@@ -22,14 +22,12 @@ export default {
       title: 'Event Lists'
     }
   },
-  async asyncData({ error }) {
+  computed: mapState({
+    events: state => state.events.events
+  }),
+  async fetch({ store, error }) {
     try {
-      const { data } = await EventService.getEvents()
-      // const response = await $axios.get('http://localhost:4000/events')
-      return {
-        events: data
-        // events: response.data
-      }
+      await store.dispatch('events/fetchEvents')
     } catch (e) {
       error({
         statusCode: 503,
@@ -37,13 +35,6 @@ export default {
       })
     }
   }
-  // asyncData(context) {
-  //   return context.$axios.get('http://localhost:4000/events').then(response => {
-  //     return {
-  //       events: response.data
-  //     }
-  //   })
-  // }
 }
 </script>
 
