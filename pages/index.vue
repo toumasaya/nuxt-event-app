@@ -3,7 +3,7 @@
     h1.title Events
     .columns
       EventCard(
-        v-for="(event, index) in events" 
+        v-for="(event, index) in events"
         :key="index"
         :event="event"
         :data-index="index")
@@ -11,6 +11,7 @@
 
 <script>
 import EventCard from '~/components/EventCard.vue'
+import EventService from '@/services/EventService.js'
 
 export default {
   components: {
@@ -21,9 +22,9 @@ export default {
       title: 'Event Lists'
     }
   },
-  async asyncData({ $axios, error }) {
+  async asyncData({ error }) {
     try {
-      const { data } = await $axios.get('http://localhost:4000/events')
+      const { data } = await EventService.getEvents()
       // const response = await $axios.get('http://localhost:4000/events')
       return {
         events: data
